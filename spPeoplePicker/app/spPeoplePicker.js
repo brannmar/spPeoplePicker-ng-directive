@@ -27,10 +27,10 @@
             // some of the values we get from the attributes on the directive.
             // if they are not set, we set standard values
             var schema = {};
-            schema['PrincipalAccountType'] = 'User,DL,SecGroup,SPGroup';
+            schema['PrincipalAccountType'] = (scope.accountType) ? scope.accountType : 'User,DL,SecGroup,SPGroup';
             schema['SearchPrincipalSource'] = 15;
             schema['ResolvePrincipalSource'] = 15;
-            schema['AllowMultipleValues'] = (scope.allowMulti) ? scope.allowMulti : true;
+            schema['AllowMultipleValues'] = (scope.allowMulti) ? scope.allowMulti : false;
             schema['MaximumEntitySuggestions'] = 50;
             schema['Width'] = (scope.cssWidth) ? scope.cssWidth : '220px';
 
@@ -122,8 +122,8 @@
                 allowMulti: '=',
                 label: '@',
                 cssWidth: '@',
-                getAllInfo: '='
-
+                getAllInfo: '=',
+                accountType: '@'
             },
             template: '<div class="form-group"> <div class="input-group">' +
                 '<div class="input-group-addon"><label for="peoplePickerDivX">{{label}}</label></div>' +
